@@ -15,6 +15,19 @@ export default function TextForm({ heading }) {
     setText(newText);
   };
 
+  //   Handler for Copying
+  const handleCopyClick = () => {
+    var text = document.getElementById('myBox');
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+
+  //   Handler for Extra Spaces
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(' '));
+  };
+
   //   Handler for Clearing
   const handleClearClick = () => {
     let newText = '';
@@ -39,13 +52,19 @@ export default function TextForm({ heading }) {
             onChange={handleOnChange}
           ></textarea>
         </div>
-        <button onClick={handleUpClick} className='btn btn-primary'>
+        <button onClick={handleUpClick} className='btn btn-primary mx-1'>
           Convert to Uppercase
         </button>
-        <button onClick={handleLoClick} className='btn btn-primary mx-2'>
+        <button onClick={handleLoClick} className='btn btn-primary mx-1'>
           Convert to Lowercase
         </button>
-        <button onClick={handleClearClick} className='btn btn-danger'>
+        <button onClick={handleCopyClick} className='btn btn-primary mx-1'>
+          Copy Text
+        </button>
+        <button onClick={handleExtraSpaces} className='btn btn-primary mx-1'>
+          Remove Extra Spaces
+        </button>
+        <button onClick={handleClearClick} className='btn btn-danger mx-1'>
           Clear Text
         </button>
       </div>
