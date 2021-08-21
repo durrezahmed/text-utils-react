@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-export default function Navbar(props) {
+export default function Navbar({ title, aboutText }) {
   return (
     <header>
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <div className='container-fluid'>
           <a className='navbar-brand' href='/'>
-            {props.title}
+            {title}
           </a>
           <button
             className='navbar-toggler'
@@ -23,7 +23,12 @@ export default function Navbar(props) {
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
                 <a className='nav-link active' aria-current='page' href='/'>
-                  {props.aboutText}
+                  Home
+                </a>
+              </li>
+              <li className='nav-item'>
+                <a className='nav-link active' aria-current='page' href='/'>
+                  {aboutText}
                 </a>
               </li>
             </ul>
